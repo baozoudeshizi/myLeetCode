@@ -10,11 +10,12 @@ next[]返回的值，不仅是最长前缀字串和后缀字串的匹配值，�
  */
 public class KMP {
     public static void main(String[] args) {
-        String str="abcadabcd";
-        int[] a=getNextArray(str.toCharArray());
+        String str = "abcabcababaccc";
+        String match = "ababa";
+        System.out.println(getIndexOf(str, match));
     }
 
-    public int getIndexOf(String s, String m){
+    public static int getIndexOf(String s, String m){
         if(s==null||m==null||m.length()<1||s.length()<m.length()){
             return -1;
         }
@@ -66,4 +67,6 @@ public class KMP {
         }
         return next;
     }
+
+
 }
