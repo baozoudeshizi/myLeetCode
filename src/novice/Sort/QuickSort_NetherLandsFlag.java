@@ -19,7 +19,7 @@ package novice.Sort;
  * 同理，当大于时，则交换a[cur]和a[more-1]，同时大于部分的范围向左扩大1，而等于部分大小就缩小1，但cur值不变；
  * 当等于时，三者范围都不变，只需要将要当前指针向右移动1即可
  */
-public class NetherLandsFlag {
+public class QuickSort_NetherLandsFlag {
     public static int[] partition(int[] arr, int l, int r, int p) {
         int less = l - 1; // 小于num部分的索引，开始时是-1
         int more = r + 1; // 大于num部分的索引，开始时是arr.length

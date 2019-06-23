@@ -5,7 +5,7 @@ package novice.Sort;
  * 原理：将数组一分为二，用递归的思想，左边mergeSort，右边mergerSort，最后整体进行merge。
  * 需要写的代码就是merge的部分，其他用递归即可
  */
-public class mergeSort {
+public class MergeSort {
     public static void mergeSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;

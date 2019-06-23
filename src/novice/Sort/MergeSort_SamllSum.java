@@ -16,7 +16,7 @@ package novice.Sort;
 /**
  * 思路：这题其实可以看做merge排序的变形，在对有序子数组进行merge的同时，累加数组小和，时间复杂度O(nlogn)
  */
-public class smallSum {
+public class MergeSort_SamllSum {
     public static int smallSum(int[] arr) {
         if (arr == null || arr.length < 2) {
             return 0;

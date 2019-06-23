@@ -10,7 +10,7 @@ package novice.Sort;
 /**
  * 思路：本题其实也是逆序排序的变形，只是merge时逆序对的累加条件和算法有所不同
  */
-public class AntiOrder {
+public class MergeSort_AntiOrder {
     public int mergeSort(int[] arr, int l, int r){
         if(l==r){   //当待排序数组长度为1时，递归开始回溯，进行merge操作
             return 0;
