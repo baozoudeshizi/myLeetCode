@@ -1,4 +1,4 @@
-package novice.luke13;
+package novice.greedy;
 
 class TrieNode{
     public int path; //表示有多少单词经过这个节点

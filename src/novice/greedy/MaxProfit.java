@@ -1,4 +1,4 @@
-package novice.luke13;
+package novice.greedy;
 
 /*
 * 题目描述：输入: 参数1，正数数组costs 参数2，正数数组profits 参数3， 正数k 参数4，正数m

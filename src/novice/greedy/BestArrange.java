@@ -1,4 +1,4 @@
-package novice.luke13;
+package novice.greedy;
 
 /*
 *题目描述：一些项目要占用一个会议室宣讲，会议室不能同时容纳两个项目的宣讲。
