@@ -1,4 +1,4 @@
-package novice.Sort;
+package novice.sort;
 
 /**
  题目描述：逆序对的个数

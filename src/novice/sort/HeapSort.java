@@ -1,4 +1,4 @@
-package novice.Sort;
+package novice.sort;
 import java.util.Arrays;
 
 

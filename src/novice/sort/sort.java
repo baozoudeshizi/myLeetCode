@@ -1,4 +1,4 @@
-package novice.Sort;
+package novice.sort;
 
 public class sort {
     //冒泡排序

@@ -1,4 +1,4 @@
-package novice.Sort;
+package novice.sort;
 
 /**
  * 时间复杂度O(N*logN)，额外空间复杂度O(N)

@@ -1,6 +1,13 @@
 package novice.union;
 
 //并查集的结构
+/**
+ * 给定一个没有重复值的整型数组arr，初始时认为arr中每一个数各自都是一个单独的集合。请设计UnionFind结构，提供以下两个操作
+ * 1. boolean isSameSet(int a, int b) 判断a，b这两个数是否属于同一个集合
+ * 2. void union(int a, int b) 把a所在的集合与b所在的集合合并在一起，原本两个集合各自的元素以后都算作同一个集合
+ * 
+ * 单次调用isSameSet或union方法的平均时间复杂度为O(1）
+ */
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,10 +28,10 @@ public class UnionFind {
 
     public static class UnionFindSet {
         public HashMap<Node, Node> fatherMap;//node分别是child和father
-        public HashMap<Node, Integer> sizeMap;//Interger是Node所在集合的节点数
+        public HashMap<Node, Integer> rankMap;//Interger是Node所在集合的节点个数，标记为秩
         //public UnionFindSet() {
         //	fatherMap = new HashMap<Node, Node>();
-        //	sizeMap = new HashMap<Node, Integer>();
+        //	rankMap = new HashMap<Node, Integer>();
         //}
         //可以将上面注释部分改成如下，表示只接受初始化时候传过来的List,初始化两个表则改到makeSet函数中，同时将makeSet函数改为private
         public UnionFindSet(List<Node> nodes){
@@ -33,12 +40,12 @@ public class UnionFind {
 
         private void makeSets(List<Node> nodes) {
             fatherMap =  new HashMap<Node, Node>();
-            sizeMap =  new HashMap<Node, Integer>();
+            rankMap =  new HashMap<Node, Integer>();
             fatherMap.clear();
-            sizeMap.clear();
+            rankMap.clear();
             for (Node node : nodes) {
                 fatherMap.put(node, node);//初始情况，每一个node自己形成一个集合，该node就是该集合的代表节点
-                sizeMap.put(node, 1);
+                rankMap.put(node, 1);
             }
         }
 
@@ -64,14 +71,14 @@ public class UnionFind {
             Node aHead = findHead(a);
             Node bHead = findHead(b);
             if (aHead != bHead) {
-                int aSetSize= sizeMap.get(aHead);
-                int bSetSize = sizeMap.get(bHead);
+                int aSetSize= rankMap.get(aHead);
+                int bSetSize = rankMap.get(bHead);
                 if (aSetSize <= bSetSize) {//短的挂长的下面
                     fatherMap.put(aHead, bHead);
-                    sizeMap.put(bHead, aSetSize + bSetSize);
+                    rankMap.put(bHead, aSetSize + bSetSize);
                 } else {
                     fatherMap.put(bHead, aHead);
-                    sizeMap.put(aHead, aSetSize + bSetSize);
+                    rankMap.put(aHead, aSetSize + bSetSize);
                 }
             }
         }
