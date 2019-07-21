@@ -5,7 +5,7 @@ package jinjie;
 
 解法：
 可以分为两个步骤：获得match字符串的next数组过程+str和match数组比较的过程
-说明一下最长前缀和最长后缀的要求：最长前缀必须是从0开始，最长后缀的最后一位吧必须是当前位的前一位
+说明一下最长前缀和最长后缀的要求：最长前缀必须是从0开始，最长后缀的最后一位必须是当前位的前一位
 next[]返回的值，不仅是最长前缀字串和后缀字串的匹配值，也是match数组从左往右匹配到哪了
  */
 public class KMP {
@@ -23,8 +23,8 @@ public class KMP {
         char[] ss=s.toCharArray();
         char[] ms=m.toCharArray();
 
-        int i1=0;//索引
-        int i2=0;
+        int i1=0; //原字符串的索引
+        int i2=0; // match字符串的索引
 
         int[] next=getNextArray(ms);//获得match数组的next数组
 
@@ -34,9 +34,9 @@ public class KMP {
                 i2++;
             }else {
                 if (next[i2] == -1) {
-                    i1++; //next[i2]的值为-1，说明match的第一个字符串就不相等
+                    i1++; //next[i2]的值为-1，说明match的第一个字符串和原字符串的第一个字符就相等，原字符串往后移动一位再进行匹配
                 } else {
-                    i2 = next[i2];//往前跳到next[i2]的位置，再讲ss[[i1]和msi2]进行比较
+                    i2 = next[i2];//往前跳到next[i2]的位置，即当前位置最长前缀子串的下一位，再将ss[[i1]和msi2]进行比较
                 }
             }
         }
@@ -50,16 +50,16 @@ public class KMP {
         }
 
         int[] next = new int[ms.length];//建立一个与ms等长的数组，每个里面存储最长前缀和后缀的匹配长度
-        next[0] = -1;
-        next[1] = 0;
-        int pos = 2; //最长后缀字串的右边界
+        next[0] = -1;  // 默认为-1
+        next[1] = 0;  // 最长子串肯定是0，那么next[1]肯定是0
+        int pos = 2; // match字符串往后计算的索引，也是最长后缀字串的右边界
         int cn = 0; //最长前缀子串长度，也是索引
         while (pos < next.length) {
             if (ms[pos - 1] == ms[cn]) {
                 next[pos++] = ++cn; //next[pos]=cn+1;pos=pos+1;cn=cn+1
             } else {//如果不相等，继续往前跳，两种情况，cn<=0,则说明不可以跳了，说明没有匹配到，即next[pos++]=0;否则继续往前跳
                 if (cn > 0) {
-                    cn = next[cn];//此时将next[cn]理解成位置，即前缀字串的下一位。cn跳到该位置，继续比较ms[pos - 1]和 ms[cn]是否相等
+                    cn = next[cn];//cn的位置应该是当前位置最大匹配长度的下一位，。cn跳到该位置，继续比较ms[pos - 1]和 ms[cn]是否相等
                 } else {
                     next[pos++] = 0;
                 }
@@ -67,6 +67,4 @@ public class KMP {
         }
         return next;
     }
-
-
 }

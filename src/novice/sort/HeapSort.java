@@ -27,7 +27,7 @@ public class HeapSort {
         }
 
         for(int i=0; i<arr.length; i++){
-            heapInsert(arr,i);//调整数组变成大根堆
+            heapInsert(arr,i);//调整数组变成大根堆,0~i位置上进行建立大根堆
         }
 
         int size=arr.length;
