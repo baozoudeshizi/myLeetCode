@@ -1,5 +1,8 @@
 package novice.linkedList;
 
+/**
+ * 题目描述：打印两个链表的公共部分
+ */
 public class PrintTwoListsCommonPart {
 
     public static class Node{

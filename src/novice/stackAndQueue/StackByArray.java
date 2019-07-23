@@ -1,6 +1,5 @@
 package novice.stackAndQueue;
 
-import sun.rmi.server.InactiveGroupException;
 
 /**
  * 用固定数组实现栈

@@ -34,7 +34,8 @@ public  class QueueByArray {
             throw new ArrayIndexOutOfBoundsException("The queue is full.");
         }
         size++;
-        //下面两行代码不这么写arr[end++]=obj;因为要考虑新加入的obj可能到达了数组末尾。所以end要单独拿出来处理
+        //下面两行代码不这么写arr[end++]=obj;
+        //因为要考虑新加入的obj可能到达了数组末尾。所以end要单独拿出来处理
         arr[end]=obj;
         end=end==arr.length-1?0:end+1;
     }

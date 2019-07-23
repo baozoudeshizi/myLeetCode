@@ -19,7 +19,7 @@ public class IsPalindromeList {
     }
 
     //第一种方法：需要一个n的空间
-    //将链表全部压栈，然后弹出来与原链表想比较
+    //将链表全部压栈，然后弹出来与原链表相比较
     public static boolean isPalindrome1(Node head){
         Stack<Node> stack = new Stack<Node>();
         Node cur = head;
