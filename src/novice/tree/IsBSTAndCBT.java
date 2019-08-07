@@ -30,19 +30,21 @@ public class IsBSTAndCBT {
 
     static int nodeValue=Integer.MIN_VALUE;
 
+    public static Node temp;
     public static boolean isBST(Node head){
         //可以找到中序遍历的代码，比较前一个值和后一个值的大小
-        if(head==null){
-            return false;
+        if(head != null)
+        {
+            if(!isBST(head.left))
+                return false;
+            if(temp != null && head.value < temp.value)
+                return false;
+            temp = head;
+            if(!isBST(head.right))
+                return false;
         }
-        isBST(head.left);
-        if(nodeValue<head.value){
-            nodeValue=head.value;
-        }else{
-            return false;
-        }
-        isBST(head.right);
         return true;
+
     }
 
     public static boolean isCBT(Node head){

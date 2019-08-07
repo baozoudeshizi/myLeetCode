@@ -29,6 +29,7 @@ public class IsBalancedTree {
         }
     }
 
+    //主函数
     public static boolean isBalance(Node head){
         return process(head).isB;
     }
@@ -49,7 +50,6 @@ public class IsBalancedTree {
         if(Math.abs(leftData.h-rightData.h)>1){
             return new ReturnData(false,0);
         }
-
         return new ReturnData(true,Math.max(leftData.h,rightData.h)+1);
     }
 

@@ -48,7 +48,7 @@ public class SerializeAndReconstructTree {
         }
         Node head =  new Node(Integer.valueOf(value));
         head.left=reconPreOrder(queue);
-        head.left=reconPreOrder(queue);
+        head.right=reconPreOrder(queue);
         return head;
     }
 

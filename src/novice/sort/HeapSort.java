@@ -26,7 +26,8 @@ public class HeapSort {
             return;
         }
 
-        for(int i=0; i<arr.length; i++){
+        for(int i=arr.length/2;i>=0;i--){
+        //for(int i=0; i<arr.length; i++){
             heapInsert(arr,i);//调整数组变成大根堆,0~i位置上进行建立大根堆
         }
 
@@ -50,7 +51,7 @@ public class HeapSort {
     //经过构造成大顶堆后，只能得到顶点是最大值，最大值与最末端的值交换后，需要再次调整堆的结构
     //这个其实是个不断往下沉的过程
     public static void heapify(int[] arr, int index, int size){
-        int left=index*2;
+        int left=index*2+1;
         while (left<size){
             int largest=(left+1<size && arr[left+1]>arr[left])?left+1:left;//先比较左右孩子谁大，确保右孩子left+1不越界
             largest=arr[largest]>arr[index]?largest:index;//拿左右孩子大的与父节点比较
@@ -127,23 +128,25 @@ public class HeapSort {
 
     // for test
     public static void main(String[] args) {
-        int testTime = 500000;
-        int maxSize = 100;
-        int maxValue = 100;
+//        int testTime = 500000;
+//        int maxSize = 100;
+//        int maxValue = 100;
         boolean succeed = true;
-        for (int i = 0; i < testTime; i++) {
-            int[] arr1 = generateRandomArray(maxSize, maxValue);
+       // for (int i = 0; i < testTime; i++) {
+           // int[] arr1 = generateRandomArray(maxSize, maxValue);
+            int[] arr1={9,8,7,6,5,4,3,2,1};
             int[] arr2 = copyArray(arr1);
             heapSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
-                break;
+               // break;
             }
-        }
-        System.out.println(succeed ? "Nice!" : "Fucking fucked!");
+//        }
+      System.out.println(succeed ? "Nice!" : "Fucking fucked!");
 
-        int[] arr = generateRandomArray(maxSize, maxValue);
+        //int[] arr = generateRandomArray(maxSize, maxValue);
+        int[] arr={9,8,7,6,5,4,3,2,1};
         printArray(arr);
         heapSort(arr);
         printArray(arr);
